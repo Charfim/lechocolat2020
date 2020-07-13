@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html; charset=utf-8" />
+    <title>Assignement08ManelCHARFI</title>
+    <style>
+        fieldset {
+            color: #6E3F19;
+            font-size: 1.2 em;
+            font-weight: bold;
+            background: #F5F5DC;
+        }
+
+        input[type=submit] {
+            width: 16%;
+            background-color: #6E3F19;
+            color: #F5F5DC;
+            padding: 14px 5px 14px 5px;
+            border-style: 2px dashed;
+            border-color: rgb(162, 101, 52);
+            border-radius: 18px;
+        }
+
+        .required label:after {
+            content: "*";
+        }
+
+        .required p:after {
+            content: "*";
+        }
+    </style>
+</head>
+
+<body>
+    <h2>The HTML of Forms </h2>
+
+    <form action="#" method="GET">
+        <!-- <form action="#" method="POST"></form> -->
+        <fieldset>
+            <legend>
+                Contact information:
+            </legend>
+
+                <div class="required">
+                    <label for="firstname">Name:</label>
+                    <input type="text" name="firstname" id="firstname" class = "required" 
+                      placeholder="Your name goes here" 
+                      autofocus="autofocus" minlength="4" required /> 
+                    <span id="firstnameInfo"></span><br><br>
+                </div>
+    
+                    <p>Can we contact with you?</p>
+    
+                    <input type="radio" id="myNoradio" name="myNoradio" value="No">
+                    <label for="myNoradio">No</label><br><br>
+    
+    
+                    <input type="radio" name="myYesradio" id="myYesradio" value="Yes">
+                    <label for= "myYesradio">Yes</label><br><br>
+
+                <p>Please, give us your mail.</p>  
+                <label for="email">Your email:</label>
+                <input type="email" name="email" id="email" placeholder="Your email goes here" required>
+                <span id="mailInfo"></span><br><br>
+        </fieldset> <br>
+
+        <label for="submit">Click to submit: </label>
+        <input type="submit" id="submit" /> <br><br>
+    </form>
+
+    <script>
+        var myfirsname = document.getElementById("firstname");
+        var myfirstnameInfo = document.getElementById("firstnameInfo");
+
+        var mymail = document.getElementById("email");
+        var mymailInfo = document.getElementById("mailInfo");
+
+    //  var myYesradio =document.getElementById("mailInfo");
+    //  var myNoradio = document.getElementById("mailInfo");
+
+
+   //   var myfeedback = document.getElementById("feedback");
+   //   var myfeedbackInfo = document.getElementById("feedbackInfo");
+
+        
+        myfirsname.oninput = function () {
+
+        if (!this.validity.valid) {
+
+          myfirsname.style.backgroundImage= "url(images/invalid.png) " ;
+          myfirsname.style.backgroundRepeat= " no-repeat";
+          myfirsname.style.backgroundPosition= " right top";
+          myfirstnameInfo.innerHTML = "Your name is too small."
+        }
+        
+        else {
+
+          myfirstnameInfo.innerHTML = "";
+          myfirsname.style.backgroundImage= "url(images/valid.png) " ;
+          myfirstname.style.backgroundRepeat = "no-repeat";
+          myfirstname.style.backgroundPosition = "right top";
+        }                                           
+    }                                   
+                                            
+        mymail.oninput = function () {
+
+       if (!this.validity.valid) {
+
+        mymailInfo.innerHTML = "Your email must be in the correct format.";
+        mymail.style.border = "3px solid red";
+             }
+             else {
+                mymailInfo.innerHTML = "";
+                mymail.style.borderColor = "green";
+            }
+         }
+
+
+// mymail.oninput = function () {
+// if (!this.validity.valid) {
+// mymailInfo.innerHTML = "Your email must be in the correct format.";
+// mymail.style.border = "3px solid red";
+//}
+// else {
+// mymailInfo.innerHTML = "";
+// mymail.style.borderColor = "green";
+//}
+//}
+
+//myfeedback.oninput = function () {
+//if (!this.validity.valid) {
+//myfeedbackInfo.innerHTML = "Your feedback must include at least 4 characters.";
+//myfeedback.style.border = "3px solid red";
+//}
+//else {
+// myfeedbackInfo.innerHTML = "";
+// myfeedback.style.borderColor = "green";
+// }
+//}
+        
+
+</script>
+
+</body>
+
+</html>
+
